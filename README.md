@@ -10,6 +10,12 @@ maven版本3.3.9
 
 tomcat版本为tomcat9
 
+文本编辑器：neovim，gnome-text-editor
+
+文件管理：yazi，nautilus
+
+终端：gnome-console
+
 java开发工具为：idea
 
 数据库连接工具：datagrip
