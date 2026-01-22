@@ -4,6 +4,7 @@
 
   environment.systemPackages = [
      inputs.apifox-github.packages.${pkgs.stdenv.hostPlatform.system}.apifox
+     inputs.electerm-github.packages.${pkgs.stdenv.hostPlatform.system}.electerm
  ]++ (with pkgs; [
     #wps
      wpsoffice-cn

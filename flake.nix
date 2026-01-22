@@ -17,7 +17,10 @@
     url = "github:luozenan/nixos-apifox";
     inputs.nixpkgs.follows = "nixpkgs";
   }; 
-  
+  electerm-github = {
+    url = "github:luozenan/nixos-electerm";
+    inputs.nixpkgs.follows = "nixpkgs";
+  }; 
 };
  
   outputs = inputs@{ self, nixpkgs, home-manager, nixvim, ... }: 
