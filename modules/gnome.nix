@@ -75,6 +75,7 @@ systemd.services.gnome-remote-desktop = {
     seahorse
     gnome-online-accounts
     gnome-system-monitor
+    gnome-disk-utility
   ] ++ (with gnomeExtensions; [
     kimpanel
     dash-to-dock

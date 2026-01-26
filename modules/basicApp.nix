@@ -49,6 +49,20 @@
     usbutils
     linux-firmware 
  ];
+ 
+ nixpkgs.overlays = [
+    (self: super: {
+      google-chrome = super.google-chrome.overrideAttrs (oldAttrs: {
+        # 保留原有的postInstall逻辑，只追加删除多余文件的操作（不替换）
+        postInstall = (oldAttrs.postInstall or "") + ''
+          # 只删除多余的com.google.Chrome.desktop，绝对保留google-chrome.desktop
+          if [ -f "$out/share/applications/com.google.Chrome.desktop" ]; then
+            rm -f "$out/share/applications/com.google.Chrome.desktop"
+          fi
+        '';
+      });
+    })
+  ];
 
   # 启用 libvirt 服务，这是使用 virt-manager 的前提
   virtualisation.libvirtd = {

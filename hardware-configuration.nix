@@ -23,6 +23,15 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+    
+  fileSystems."/smnt" = 
+    {
+      # 从Disks中复制的UUID，比设备名更稳定
+      device = "/dev/disk/by-uuid/d6426915-34a0-437b-90c9-c9e04f625914";
+      fsType = "ext4";
+      # 挂载选项：defaults（默认）+ noatime（提升性能）
+      options = [ "defaults" "noatime" ];
+    };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/1c20118d-1d75-40a1-8901-18df77dc6b24"; }

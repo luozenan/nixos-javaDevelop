@@ -107,6 +107,15 @@ nix.settings = {
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  
+  environment.variables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
+    GOPROXY = "https://goproxy.cn,direct";
+  };
+
+  systemd.services.nix-daemon.environment = {
+    GOPROXY = "https://goproxy.cn,direct";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -5,12 +5,19 @@
   environment.systemPackages = [
      inputs.apifox-github.packages.${pkgs.stdenv.hostPlatform.system}.apifox
      inputs.electerm-github.packages.${pkgs.stdenv.hostPlatform.system}.electerm
+     inputs.finalshell-github.packages.${pkgs.stdenv.hostPlatform.system}.finalshell
  ]++ (with pkgs; [
     #wps
      wpsoffice-cn
      #社交 https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.AppImage
      # nix store add-file 
-     wechat
+     # wechat
+      (pkgs.wechat.overrideAttrs (oldAttrs: {
+      src = fetchurl {
+          url = "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.AppImage";
+          hash = "sha256-+r5Ebu40GVGG2m2lmCFQ/JkiDsN/u7XEtnLrB98602w=";
+        };
+    }))
      thunderbird
      # 远程
      parsec-bin
@@ -27,7 +34,6 @@
      #会议软件
      wemeet
      jitsi-meet-electron
-   
   ]);
 
 
