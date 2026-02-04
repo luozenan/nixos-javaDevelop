@@ -6,7 +6,7 @@
 
 jdk版本为1.8,默认路径/etc/jdk8
 
-maven版本3.3.9,默认路径 /etc/maven
+maven版本3.3.9,默认路径 /etc/maven/maven
 
 tomcat版本为tomcat9
 
