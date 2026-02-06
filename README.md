@@ -35,3 +35,5 @@ office软件：wps
 邮件客户端：thunderbird
 
 window软件安装：bottles
+
+vpn: dae, v2raya
