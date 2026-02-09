@@ -25,6 +25,10 @@
     gnome-system-monitor
     gnome-disk-utility
     gnome-builder
+    # gnome美化
+    oreo-cursors-plus
+    bibata-cursors
+    reversal-icon-theme
   ] ++ (with gnomeExtensions; [
     kimpanel
     dash-to-dock
@@ -43,6 +47,7 @@
     desktop-icons-ng-ding
     astra-monitor
     bing-wallpaper-changer
+    user-themes
   ]);
   
   environment.variables = {

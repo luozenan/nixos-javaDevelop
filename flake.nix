@@ -21,10 +21,6 @@
     url = "github:luozenan/nixos-electerm";
     inputs.nixpkgs.follows = "nixpkgs";
   }; 
-  finalshell-github = {
-    url = "github:luozenan/nixos-finalshell";
-    inputs.nixpkgs.follows = "nixpkgs";
-  }; 
 
 };
  
