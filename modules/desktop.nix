@@ -6,7 +6,7 @@
   security.polkit.enable = true; # polkit
 
   environment.systemPackages = with pkgs; [
-    xorg.xrandr
+    xrandr
     desktop-file-utils
   ];
   

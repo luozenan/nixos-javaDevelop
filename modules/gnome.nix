@@ -29,6 +29,7 @@
     oreo-cursors-plus
     bibata-cursors
     reversal-icon-theme
+    flat-remix-gnome
   ] ++ (with gnomeExtensions; [
     kimpanel
     dash-to-dock
