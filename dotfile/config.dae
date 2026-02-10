@@ -111,6 +111,12 @@ routing {
     domain(geosite:cn) -> direct
     dip(geoip:cn) -> direct
 
+    # 部分国外网站直连
+    domain(suffix: nixos.org) -> direct
+    domain(suffix: archlinux.org) -> direct
+    domain(suffix: gnome.org) -> direct
+    domain(suffix: gnome-look.org) -> direct
+
     ########################
     # GitHub / CDN 稳定
     ########################
