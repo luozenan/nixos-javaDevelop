@@ -10,9 +10,15 @@
      wpsoffice-cn
      #社交 https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.AppImage
      # nix store add-file 
-     # wechat
-     qq
      wechat-uos
+     qq
+    #(pkgs.wechat.overrideAttrs (oldAttrs: {
+     #   version = "4.1.0.16";
+      #  src = fetchurl {
+       #   url = "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.AppImage";
+        #  hash = "sha256-Pfl81lNVlMJWyPqFli1Af2q8pRLujcKCjYoILCKDx8U=";
+        #};
+     #}))
      thunderbird
      # 远程
      parsec-bin
@@ -22,19 +28,29 @@
      jetbrains.idea
      jetbrains.datagrip
      vscode
+     zed-editor
+     #jetbrains.rust-rover
      #vpn
-     v2raya
+     #v2raya
      easytier
      dae
      #redis client
      tiny-rdm
      #会议软件
      wemeet
-     jitsi-meet-electron
      #壁纸
      #音乐
      lx-music-desktop
     # qqmusic
+    # 内存占用查询
+    #ps_mem
+    # 虚拟机
+    gnome-boxes
+    #截图
+    grim
+    satty
+    # 录屏
+    obs-studio
   ]);
 
 # 远程
@@ -43,10 +59,10 @@ services.sunshine = {
     autoStart = true;
     capSysAdmin = true; # only needed for Wayland -- omit this when using with Xorg
     openFirewall = true;
-  };
+};
 
 
- services.v2raya.enable = true;
+ #services.v2raya.enable = true;
  services.easytier = {
     enable = true;
     instances."nixos".configFile = "/home/luozenan/easytier.toml";
@@ -55,5 +71,16 @@ services.sunshine = {
     enable = true;
     configFile = "/home/luozenan/.config/dae/config.dae";
  };
+
+virtualisation.docker = {
+  enable = true;
+  extraOptions = ''
+        --registry-mirror=https://registry.linkease.net:5443
+  '';
+};
+
+# Optional: Add your user to the "docker" group to run docker without sudo
+users.users.luozenan.extraGroups = [ "docker" ];
+
 }
 

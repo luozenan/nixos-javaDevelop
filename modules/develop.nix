@@ -28,28 +28,35 @@ in
       pygobject3
     ]))
     #rust
-    rustup
+    #rustup
+    cargo
+    clippy
+    rustc
+    rustfmt
     rust-analyzer
+    openssl
+    pkg-config
     #C
     gcc
     #database
+    postgresql
     mariadb
-    mycli
+    #mycli
 ];
 services.mysql = {
   enable = true;
   package = pkgs.mariadb;
 };
+services.postgresql = {
+  enable = true;
+};
 # environment.variables._JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
  
  #environment.variables._JAVA_AWT_WM_NONREPARENTING = "1";
  environment.etc = {
-  "jdk8" = {
-    source = "${pkgs.javaPackages.compiler.openjdk8-bootstrap}"; # 固定指向 nixpkgs 中的 jdk8 包
-  };
-  "maven" = {
-	source = "${customMaven}";
-  };
+  "jdk8".source = "${pkgs.javaPackages.compiler.openjdk8-bootstrap}"; # 固定指向 nixpkgs 中的 jdk8 包
+  "maven".source = "${customMaven}";
+  "rust-analyzer".source = "${pkgs.rust-analyzer}";
 };
 environment.variables = {
     # 默认JDK 8路径（自动匹配nix/store中的openjdk8）
@@ -58,6 +65,11 @@ environment.variables = {
     MAVEN_HOME = "${customMaven}";
     # 把JDK/Maven的bin目录加入PATH
    M2_REPO = "${config.users.users.luozenan.home}/.m2/repository";
+   OPENSSL_DIR = "${pkgs.openssl}";
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+    RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
     };
+    environment.pathsToLink = [ "/home/luozenan/.cargo/bin" ];
+    
 }
 

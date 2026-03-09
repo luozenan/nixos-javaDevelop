@@ -17,6 +17,8 @@
 
   environment.systemPackages = with pkgs; [
     gnome-console
+    xdg-desktop-portal
+    xdg-desktop-portal-gnome
     gnome-text-editor
     nautilus
     gnome-tweaks
