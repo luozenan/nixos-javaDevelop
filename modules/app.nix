@@ -22,7 +22,7 @@
      thunderbird
      # 远程
      parsec-bin
-     sunshine
+     #sunshine
      #moonlight
      #开发
      jetbrains.idea
@@ -51,8 +51,14 @@
     satty
     # 录屏
     obs-studio
+    # AI
+    opencode
+    claude-code
   ]);
 
+ environment.etc = {
+  "claude".source = "${pkgs.claude-code}"; # 固定指向 nixpkgs 中的 jdk8 包
+};
 # 远程
 services.sunshine = {
     enable = true;
@@ -60,7 +66,6 @@ services.sunshine = {
     capSysAdmin = true; # only needed for Wayland -- omit this when using with Xorg
     openFirewall = true;
 };
-
 
  #services.v2raya.enable = true;
  services.easytier = {

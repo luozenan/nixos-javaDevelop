@@ -53,6 +53,7 @@ environment.variables = {
     noto-fonts
     noto-fonts-cjk-sans    # 思源黑体 (无衬线)
     noto-fonts-cjk-serif   # 思源宋体 (衬线)
+    nerd-fonts.jetbrains-mono
     ];
   fontconfig = {
     useEmbeddedBitmaps = true;

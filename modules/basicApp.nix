@@ -20,21 +20,53 @@
       shiftwidth = 2;        # Tab width should be 2
     }; 
   };
-  programs.fish.enable = true;
-   users.extraUsers.luozenan = {
-    shell = pkgs.fish;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+      si = "sudo -i";
+      update = "sudo nixos-rebuild switch";
+    };
+
+    histSize = 10000;
+    histFile = "$HOME/.zsh_history";
+    setOptions = [
+      "HIST_IGNORE_ALL_DUPS"
+    ];
+    ohMyZsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "sudo"
+	"docker"
+      ];
+      theme = "";
+    };
+    interactiveShellInit = ''
+      eval "$(starship init zsh)"
+    '';
   };
-  programs.bash = {
-  interactiveShellInit = ''
-    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm | tr -d '\n') != "fish" && -z ''${BASH_EXECUTION_STRING} ]]; then
-      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-    fi
-  '';
-};
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
+      };
+    };
+  };
+  users.extraUsers.luozenan = {
+    shell = pkgs.zsh;
+  };
 
   environment.systemPackages = with pkgs; [
     neovim   
+    starship
     zip
     unzip
     git
