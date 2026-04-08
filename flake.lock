@@ -125,7 +125,8 @@
         "electerm-github": "electerm-github",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "wechat-monitor": "wechat-monitor"
       }
     },
     "systems": {
@@ -140,6 +141,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "wechat-monitor": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773554452,
+        "narHash": "sha256-vok7gxILeciJVUOGz7Ut1sPQAYwDW6guervw3VQVS/0=",
+        "owner": "Aozora-Wings",
+        "repo": "wechat-linux-monitor",
+        "rev": "afb2b7d6271352794d48c42870c178b79dff738d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aozora-Wings",
+        "repo": "wechat-linux-monitor",
         "type": "github"
       }
     }

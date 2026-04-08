@@ -21,10 +21,13 @@
     url = "github:luozenan/nixos-electerm";
     inputs.nixpkgs.follows = "nixpkgs";
   }; 
-
+ wechat-monitor = {
+      url = "github:Aozora-Wings/wechat-linux-monitor";
+      flake = false;
+    };
 };
  
-  outputs = inputs@{ self, nixpkgs, home-manager, nixvim, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nixvim, wechat-monitor, ... }: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -37,7 +40,7 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { 
-        inherit inputs;
+        inherit inputs wechat-monitor;
 	system = "x86_64-linux";
       };
       

@@ -10,7 +10,7 @@
      wpsoffice-cn
      #社交 https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.AppImage
      # nix store add-file 
-     wechat-uos
+     #wechat-uos
      qq
     #(pkgs.wechat.overrideAttrs (oldAttrs: {
      #   version = "4.1.0.16";
