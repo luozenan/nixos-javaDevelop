@@ -54,7 +54,7 @@
             home-manager.users.luozenan.imports = [
               ./home.nix
             ];
-            home-manager.users.luozenan.home.stateVersion = "25.11";
+            home-manager.users.luozenan.home.stateVersion = "26.05";
 	  }
           ./configuration.nix
       ] ++ generatedModules; 

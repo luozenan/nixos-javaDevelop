@@ -1,4 +1,8 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ config, pkgs, lib, inputs, ... }: 
+let
+  hanabi-extension = pkgs.callPackage ../customConfig/hanabi.nix {};
+in
+{
 
 
  
@@ -16,6 +20,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    hanabi-extension
+    clapper
     gnome-console
     xdg-desktop-portal
     xdg-desktop-portal-gnome
@@ -51,6 +57,7 @@
     astra-monitor
     bing-wallpaper-changer
     user-themes
+    paperwm
   ]);
   
   environment.variables = {

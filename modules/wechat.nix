@@ -48,6 +48,7 @@ let
         --replace "Name=WeChat" "Name=WeChat New" \
         --replace "Exec=AppRun" "Exec=wechat_new" \
         --replace "Icon=wechat" "Icon=wechat"
+      echo "StartupWMClass=wechat" >> $out/share/applications/wechat_new.desktop
       
       # 复制图标
       mkdir -p $out/share/icons/hicolor/256x256/apps
