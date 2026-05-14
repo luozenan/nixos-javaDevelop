@@ -103,6 +103,40 @@
     qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
   };
   
+services.linyaps.enable = true;
+ programs.nix-ld = {
+  enable = true;
+  # 把 wine 要的基础库加进来
+  libraries = with pkgs; [
+    glibc
+    gtk3
+    pango
+    cairo
+    atk
+    gdk-pixbuf
+    glib
+    dbus
+    freetype
+    fontconfig
+    libx11
+    libxext
+    libxrender
+    libxfixes
+    libxcomposite
+    libxdamage
+    libxrandr
+    libxinerama
+    libxcursor
+    libxi
+    libxtst
+    libxmu
+    libxpm
+    alsa-lib
+    pulseaudio
+    mesa
+    vulkan-loader
+  ];
+}; 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   

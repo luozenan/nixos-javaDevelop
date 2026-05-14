@@ -83,7 +83,13 @@ virtualisation.docker = {
         --registry-mirror=https://registry.linkease.net:5443
   '';
 };
-
+nixpkgs.overlays = [
+  (final: prev: {
+    openldap = prev.openldap.overrideAttrs (old: {
+      doCheck = false;
+    });
+  })
+];
 # Optional: Add your user to the "docker" group to run docker without sudo
 users.users.luozenan.extraGroups = [ "docker" ];
 

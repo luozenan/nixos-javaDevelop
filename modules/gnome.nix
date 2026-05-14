@@ -58,6 +58,7 @@ in
     bing-wallpaper-changer
     user-themes
     paperwm
+    just-perfection
   ]);
   
   environment.variables = {
